@@ -1,0 +1,334 @@
+/* src/styles/themes/wireframe.css */
+.theme-wireframe {
+  /* Background */
+  background: #000000;
+  background-attachment: fixed;
+  
+  /* Text Colors */
+  --text-primary: #00ff00;
+  --text-secondary: #00cc00;
+  --text-accent: #ffffff;
+  --text-muted: #008800;
+  
+  /* Background Colors */
+  --bg-primary: #000000;
+  --bg-secondary: #111111;
+  --bg-tertiary: #333333;
+  --bg-glass: rgba(17, 17, 17, 0.9);
+  
+  /* Accent Colors */
+  --accent-primary: #00ff00;
+  --accent-secondary: #ffffff;
+  --accent-tertiary: #ff0000;
+  --accent-yellow: #ffff00;
+  
+  /* Border Colors */
+  --border-primary: rgba(0, 255, 0, 0.5);
+  --border-secondary: rgba(255, 255, 255, 0.3);
+  --border-tertiary: rgba(255, 0, 0, 0.5);
+  
+  /* Shadow Colors */
+  --shadow-primary: 0 0 10px rgba(0, 255, 0, 0.5);
+  --shadow-secondary: 0 0 10px rgba(255, 255, 255, 0.3);
+  --shadow-tertiary: 0 0 10px rgba(255, 0, 0, 0.5);
+  
+  /* Grid Pattern */
+  --grid-bg: linear-gradient(transparent 99%, rgba(0, 255, 0, 0.2) 100%),
+             linear-gradient(90deg, transparent 99%, rgba(0, 255, 0, 0.2) 100%);
+}
+
+/* Wireframe Theme Specific Styles */
+.theme-wireframe * {
+  outline: 1px solid var(--border-primary) !important;
+  border-radius: 0 !important;
+}
+
+.theme-wireframe .glass-effect {
+  background: rgba(17, 17, 17, 0.9);
+  backdrop-filter: none;
+  border: 1px solid var(--border-primary);
+}
+
+.theme-wireframe .text-gradient {
+  color: var(--accent-primary);
+  background: none;
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: initial;
+  background-clip: initial;
+}
+
+.theme-wireframe .btn-primary {
+  background: transparent;
+  color: var(--accent-primary);
+  border: 1px solid var(--border-primary);
+  font-family: 'Courier New', monospace;
+}
+
+.theme-wireframe .btn-primary:hover {
+  background: rgba(0, 255, 0, 0.1);
+  box-shadow: var(--shadow-primary);
+}
+
+.theme-wireframe .card {
+  background: transparent;
+  border: 1px solid var(--border-primary);
+  border-radius: 0;
+  position: relative;
+  overflow: visible;
+}
+
+.theme-wireframe .card::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border: 1px solid var(--border-primary);
+  pointer-events: none;
+}
+
+/* Grid Background */
+.theme-wireframe::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: var(--grid-bg);
+  background-size: 50px 50px;
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Wireframe Grid */
+.theme-wireframe .wireframe-grid {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(to right, var(--border-primary) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border-primary) 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Coordinate System */
+.theme-wireframe .coordinate-system {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.theme-wireframe .axis {
+  position: absolute;
+}
+
+.theme-wireframe .x-axis {
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(255, 0, 0, 0.5);
+}
+
+.theme-wireframe .y-axis {
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: rgba(0, 255, 0, 0.5);
+}
+
+.theme-wireframe .z-axis {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 1px;
+  background: rgba(0, 0, 255, 0.5);
+  transform: rotate(45deg);
+  transform-origin: left center;
+}
+
+/* Wireframe Models */
+.theme-wireframe .wireframe-model {
+  position: relative;
+  border: none !important;
+}
+
+.theme-wireframe .wireframe-model::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: 1px solid var(--accent-primary);
+  box-shadow: 
+    0 0 0 1px var(--accent-primary),
+    inset 0 0 0 1px var(--accent-primary);
+}
+
+/* Terminal Text */
+.theme-wireframe .terminal-text {
+  font-family: 'Courier New', monospace;
+  color: var(--accent-primary);
+  background: rgba(0, 0, 0, 0.8);
+  padding: 10px;
+  border: 1px solid var(--border-primary);
+  white-space: pre-wrap;
+  overflow: auto;
+}
+
+.theme-wireframe .terminal-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 16px;
+  background: var(--accent-primary);
+  animation: terminal-blink 1s step-end infinite;
+  vertical-align: middle;
+}
+
+@keyframes terminal-blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+/* Debug Info */
+.theme-wireframe .debug-info {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  color: var(--accent-primary);
+  background: rgba(0, 0, 0, 0.8);
+  padding: 5px;
+  border: 1px solid var(--border-primary);
+  z-index: 1000;
+}
+
+.theme-wireframe .debug-line {
+  margin: 2px 0;
+}
+
+/* Vertex Points */
+.theme-wireframe .vertex-point {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--accent-primary);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Edge Lines */
+.theme-wireframe .edge-line {
+  position: absolute;
+  background: var(--accent-primary);
+  transform-origin: 0 0;
+}
+
+/* Bounding Box */
+.theme-wireframe .bounding-box {
+  position: absolute;
+  border: 1px dashed var(--accent-primary);
+  pointer-events: none;
+}
+
+/* Normals Display */
+.theme-wireframe .normal-line {
+  position: absolute;
+  background: rgba(0, 0, 255, 0.5);
+  transform-origin: 0 0;
+}
+
+.theme-wireframe .normal-tip {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: rgba(0, 0, 255, 1);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* UV Coordinates */
+.theme-wireframe .uv-coordinate {
+  position: absolute;
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  color: var(--accent-yellow);
+  background: rgba(0, 0, 0, 0.8);
+  padding: 2px;
+}
+
+/* Wireframe Animation */
+.theme-wireframe .wireframe-animate {
+  animation: wireframe-pulse 2s ease-in-out infinite;
+}
+
+@keyframes wireframe-pulse {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Construction Lines */
+.theme-wireframe .construction-line {
+  position: absolute;
+  background: rgba(0, 255, 0, 0.2);
+  border: 1px dashed var(--accent-primary);
+  pointer-events: none;
+}
+
+/* Measurement Labels */
+.theme-wireframe .measurement-label {
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  color: var(--accent-primary);
+  background: rgba(0, 0, 0, 0.8);
+  padding: 2px 4px;
+  border: 1px solid var(--border-primary);
+}
+
+/* Grid Snapping */
+.theme-wireframe .grid-snap {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: var(--accent-primary);
+  border-radius: 50%;
+}
+
+/* Layer Display */
+.theme-wireframe .layer-indicator {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  color: var(--accent-primary);
+  background: rgba(0, 0, 0, 0.8);
+  padding: 5px;
+  border: 1px solid var(--border-primary);
+  z-index: 1000;
+}

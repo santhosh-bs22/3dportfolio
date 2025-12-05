@@ -1,0 +1,294 @@
+/* src/styles/globals.css */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Space Theme Colors */
+  --color-space-dark: #0a0e17;
+  --color-space-navy: #1a1f2e;
+  --color-space-blue: #1F4E79;
+  --color-space-light: #00d9ff;
+  --color-space-purple: #9d4edd;
+  --color-space-accent: #ff6b6b;
+  
+  /* Cyber Theme Colors */
+  --color-cyber-dark: #0d1117;
+  --color-cyber-green: #00ff88;
+  --color-cyber-blue: #0088ff;
+  --color-cyber-pink: #ff0088;
+  --color-cyber-yellow: #ffff00;
+  
+  /* Wireframe Theme Colors */
+  --color-wireframe-bg: #000000;
+  --color-wireframe-line: #00ff00;
+  --color-wireframe-accent: #ffffff;
+  --color-wireframe-grid: #333333;
+  
+  /* Common Colors */
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+  
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  --spacing-3xl: 4rem;
+  
+  /* Typography */
+  --font-orbitron: 'Orbitron', sans-serif;
+  --font-space-mono: 'Space Mono', monospace;
+  --font-inter: 'Inter', sans-serif;
+  
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 300ms ease;
+  --transition-slow: 500ms ease;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  
+  /* Glow Effects */
+  --glow-blue: 0 0 20px rgba(0, 217, 255, 0.5);
+  --glow-purple: 0 0 20px rgba(157, 78, 221, 0.5);
+  --glow-green: 0 0 20px rgba(0, 255, 136, 0.5);
+  
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
+}
+
+/* Reset & Base Styles */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-inter);
+  line-height: 1.6;
+  color: var(--color-white);
+  background-color: var(--color-space-dark);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-orbitron);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: var(--spacing-md);
+}
+
+h1 {
+  font-size: 3.5rem;
+  font-weight: 900;
+  background: linear-gradient(90deg, var(--color-space-light), var(--color-space-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-size: 1.875rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+p {
+  margin-bottom: var(--spacing-md);
+  font-size: 1.125rem;
+}
+
+a {
+  color: var(--color-space-light);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-space-purple);
+}
+
+/* Code Elements */
+code {
+  font-family: var(--font-space-mono);
+  background: rgba(31, 78, 121, 0.2);
+  padding: 0.2rem 0.4rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(0, 217, 255, 0.2);
+}
+
+pre {
+  font-family: var(--font-space-mono);
+  background: rgba(10, 14, 23, 0.8);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(0, 217, 255, 0.3);
+  overflow-x: auto;
+  margin-bottom: var(--spacing-md);
+}
+
+/* Utility Classes */
+.text-gradient-space {
+  background: linear-gradient(90deg, var(--color-space-light), var(--color-space-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-cyber {
+  background: linear-gradient(90deg, var(--color-cyber-green), var(--color-cyber-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glass-effect {
+  background: rgba(26, 31, 46, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 217, 255, 0.2);
+}
+
+.glass-effect-light {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-space-navy);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, var(--color-space-blue), var(--color-space-light));
+  border-radius: var(--radius-full);
+  border: 2px solid var(--color-space-navy);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, var(--color-space-light), var(--color-space-purple));
+}
+
+/* Selection */
+::selection {
+  background-color: var(--color-space-light);
+  color: var(--color-space-dark);
+}
+
+::-moz-selection {
+  background-color: var(--color-space-light);
+  color: var(--color-space-dark);
+}
+
+/* Focus Styles */
+:focus {
+  outline: 2px solid var(--color-space-light);
+  outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Loading State */
+.loading {
+  position: relative;
+  overflow: hidden;
+}
+
+.loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Print Styles */
+@media print {
+  body {
+    color: var(--color-black);
+    background: var(--color-white);
+  }
+  
+  .no-print {
+    display: none;
+  }
+}

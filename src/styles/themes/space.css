@@ -1,0 +1,253 @@
+/* src/styles/themes/space.css */
+.theme-space {
+  /* Background */
+  background: radial-gradient(ellipse at bottom, #0a0e17 0%, #000000 100%);
+  background-attachment: fixed;
+  
+  /* Text Colors */
+  --text-primary: #ffffff;
+  --text-secondary: #d1d5db;
+  --text-accent: #00d9ff;
+  --text-muted: #9ca3af;
+  
+  /* Background Colors */
+  --bg-primary: #0a0e17;
+  --bg-secondary: #1a1f2e;
+  --bg-tertiary: #1F4E79;
+  --bg-glass: rgba(26, 31, 46, 0.7);
+  
+  /* Accent Colors */
+  --accent-primary: #00d9ff;
+  --accent-secondary: #9d4edd;
+  --accent-tertiary: #ff6b6b;
+  --accent-success: #00ff88;
+  
+  /* Border Colors */
+  --border-primary: rgba(0, 217, 255, 0.3);
+  --border-secondary: rgba(157, 78, 221, 0.3);
+  --border-tertiary: rgba(255, 107, 107, 0.3);
+  
+  /* Shadow Colors */
+  --shadow-primary: 0 0 20px rgba(0, 217, 255, 0.3);
+  --shadow-secondary: 0 0 20px rgba(157, 78, 221, 0.3);
+  --shadow-tertiary: 0 0 20px rgba(255, 107, 107, 0.3);
+  
+  /* Gradient Backgrounds */
+  --gradient-primary: linear-gradient(135deg, #0a0e17 0%, #1a1f2e 50%, #1F4E79 100%);
+  --gradient-accent: linear-gradient(90deg, #1F4E79, #00d9ff, #9d4edd);
+  --gradient-card: linear-gradient(145deg, rgba(26, 31, 46, 0.8), rgba(31, 78, 121, 0.4));
+  
+  /* Special Effects */
+  --starfield-bg: radial-gradient(2px 2px at 20px 30px, #eee, transparent),
+                   radial-gradient(2px 2px at 40px 70px, #fff, transparent),
+                   radial-gradient(2px 2px at 50px 160px, #ddd, transparent),
+                   radial-gradient(2px 2px at 90px 40px, #fff, transparent),
+                   radial-gradient(2px 2px at 130px 80px, #fff, transparent),
+                   radial-gradient(2px 2px at 160px 120px, #ddd, transparent);
+}
+
+/* Space Theme Specific Styles */
+.theme-space .glass-effect {
+  background: rgba(26, 31, 46, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-primary);
+}
+
+.theme-space .text-gradient {
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.theme-space .btn-primary {
+  background: linear-gradient(90deg, var(--bg-tertiary), var(--accent-primary));
+  color: white;
+  border: none;
+}
+
+.theme-space .btn-primary:hover {
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+  box-shadow: var(--shadow-primary);
+}
+
+.theme-space .card {
+  background: var(--gradient-card);
+  border: 1px solid var(--border-primary);
+  border-radius: 1rem;
+}
+
+.theme-space .card:hover {
+  border-color: var(--accent-primary);
+  box-shadow: var(--shadow-primary);
+}
+
+/* Starfield Animation */
+.theme-space::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: var(--starfield-bg);
+  background-size: 200px 200px;
+  animation: starfield 100s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes starfield {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 200px 200px;
+  }
+}
+
+/* Shooting Stars */
+.theme-space .shooting-star {
+  position: fixed;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  animation: shooting-star 3s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes shooting-star {
+  0% {
+    transform: translateX(-100px) translateY(0) rotate(45deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100vw) translateY(100vh) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+/* Nebula Effects */
+.theme-space .nebula {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.theme-space .nebula-1 {
+  background: radial-gradient(circle, var(--accent-primary), transparent);
+  width: 300px;
+  height: 300px;
+  top: 20%;
+  left: 10%;
+  animation: nebula-float 20s ease-in-out infinite;
+}
+
+.theme-space .nebula-2 {
+  background: radial-gradient(circle, var(--accent-secondary), transparent);
+  width: 400px;
+  height: 400px;
+  top: 60%;
+  right: 15%;
+  animation: nebula-float 25s ease-in-out infinite reverse;
+}
+
+.theme-space .nebula-3 {
+  background: radial-gradient(circle, var(--accent-tertiary), transparent);
+  width: 250px;
+  height: 250px;
+  bottom: 20%;
+  left: 30%;
+  animation: nebula-float 30s ease-in-out infinite;
+}
+
+@keyframes nebula-float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -20px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 30px) scale(0.9);
+  }
+}
+
+/* Planet Rings */
+.theme-space .planet-ring {
+  position: relative;
+}
+
+.theme-space .planet-ring::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 20px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--accent-primary),
+    var(--accent-secondary),
+    var(--accent-primary),
+    transparent
+  );
+  transform: translate(-50%, -50%) rotate(45deg);
+  border-radius: 10px;
+  opacity: 0.3;
+  animation: ring-rotate 20s linear infinite;
+}
+
+@keyframes ring-rotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Data Streams */
+.theme-space .data-stream {
+  position: fixed;
+  width: 2px;
+  height: 100px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--accent-primary),
+    transparent
+  );
+  pointer-events: none;
+  z-index: -1;
+  animation: data-stream 4s linear infinite;
+}
+
+@keyframes data-stream {
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}

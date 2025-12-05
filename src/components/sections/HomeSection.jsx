@@ -51,15 +51,15 @@ const HomeSection = ({ id, setActiveSection }) => {
           className="max-w-4xl mx-auto"
         >
           {/* Welcome Badge */}
-          <motion.div
+          {/* <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ delay: 0.2, type: 'spring' }}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#1F4E79]/20 border border-[#00d9ff]/20 mb-6"
           >
             <Sparkles className="w-4 h-4 text-[#00d9ff]" />
-            <span className="text-sm text-[#00d9ff]">Welcome to my 3D Portfolio</span>
-          </motion.div>
+            // {/* <span className="text-sm text-[#00d9ff]">Welcome to my 3D Portfolio</span> */}
+          {/* </motion.div>  */}
 
           {/* Main Heading */}
           <h1 className="text-5xl md:text-7xl font-bold mb-4">

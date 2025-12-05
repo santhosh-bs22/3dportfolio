@@ -1,0 +1,383 @@
+/* src/styles/themes/cyber.css */
+.theme-cyber {
+  /* Background */
+  background: linear-gradient(135deg, #0d1117 0%, #001122 50%, #000811 100%);
+  background-attachment: fixed;
+  
+  /* Text Colors */
+  --text-primary: #ffffff;
+  --text-secondary: #cccccc;
+  --text-accent: #00ff88;
+  --text-muted: #888888;
+  
+  /* Background Colors */
+  --bg-primary: #0d1117;
+  --bg-secondary: #001122;
+  --bg-tertiary: #0088ff;
+  --bg-glass: rgba(0, 17, 34, 0.8);
+  
+  /* Accent Colors */
+  --accent-primary: #00ff88;
+  --accent-secondary: #0088ff;
+  --accent-tertiary: #ff0088;
+  --accent-yellow: #ffff00;
+  
+  /* Border Colors */
+  --border-primary: rgba(0, 255, 136, 0.3);
+  --border-secondary: rgba(0, 136, 255, 0.3);
+  --border-tertiary: rgba(255, 0, 136, 0.3);
+  
+  /* Shadow Colors */
+  --shadow-primary: 0 0 20px rgba(0, 255, 136, 0.5);
+  --shadow-secondary: 0 0 20px rgba(0, 136, 255, 0.5);
+  --shadow-tertiary: 0 0 20px rgba(255, 0, 136, 0.5);
+  
+  /* Gradient Backgrounds */
+  --gradient-primary: linear-gradient(135deg, #0d1117 0%, #001122 50%, #0088ff 100%);
+  --gradient-accent: linear-gradient(90deg, #00ff88, #0088ff, #ff0088);
+  --gradient-card: linear-gradient(145deg, rgba(0, 17, 34, 0.9), rgba(0, 136, 255, 0.3));
+  
+  /* Grid Pattern */
+  --grid-bg: linear-gradient(transparent 95%, rgba(0, 255, 136, 0.1) 100%),
+             linear-gradient(90deg, transparent 95%, rgba(0, 255, 136, 0.1) 100%);
+}
+
+/* Cyber Theme Specific Styles */
+.theme-cyber .glass-effect {
+  background: rgba(0, 17, 34, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-primary);
+}
+
+.theme-cyber .text-gradient {
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.theme-cyber .btn-primary {
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+  color: #0d1117;
+  border: none;
+  font-weight: bold;
+}
+
+.theme-cyber .btn-primary:hover {
+  background: linear-gradient(90deg, var(--accent-secondary), var(--accent-tertiary));
+  box-shadow: var(--shadow-primary);
+}
+
+.theme-cyber .card {
+  background: var(--gradient-card);
+  border: 1px solid var(--border-primary);
+  border-radius: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.theme-cyber .card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--accent-primary), var(--accent-secondary), var(--accent-tertiary));
+  z-index: -1;
+  border-radius: 0;
+  animation: border-glow 2s linear infinite;
+}
+
+/* Grid Background */
+.theme-cyber::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: var(--grid-bg);
+  background-size: 50px 50px;
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Scan Line Effect */
+.theme-cyber .scan-line {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--accent-primary),
+    transparent
+  );
+  animation: scan 4s linear infinite;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+@keyframes scan {
+  0% {
+    top: 0;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    top: 100vh;
+    opacity: 0;
+  }
+}
+
+/* Glitch Effect */
+.theme-cyber .glitch-text {
+  position: relative;
+  color: var(--accent-primary);
+}
+
+.theme-cyber .glitch-text::before,
+.theme-cyber .glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.theme-cyber .glitch-text::before {
+  left: 2px;
+  text-shadow: -1px 0 var(--accent-tertiary);
+  animation: glitch-1 2s infinite linear alternate-reverse;
+}
+
+.theme-cyber .glitch-text::after {
+  left: -2px;
+  text-shadow: 1px 0 var(--accent-secondary);
+  animation: glitch-2 3s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-1 {
+  0% {
+    clip: rect(44px, 450px, 56px, 0);
+  }
+  5% {
+    clip: rect(99px, 450px, 166px, 0);
+  }
+  10% {
+    clip: rect(23px, 450px, 129px, 0);
+  }
+  15% {
+    clip: rect(85px, 450px, 96px, 0);
+  }
+  20% {
+    clip: rect(2px, 450px, 68px, 0);
+  }
+  25% {
+    clip: rect(61px, 450px, 149px, 0);
+  }
+  30% {
+    clip: rect(34px, 450px, 136px, 0);
+  }
+  35% {
+    clip: rect(79px, 450px, 53px, 0);
+  }
+  40% {
+    clip: rect(42px, 450px, 77px, 0);
+  }
+  45% {
+    clip: rect(99px, 450px, 9px, 0);
+  }
+  50% {
+    clip: rect(4px, 450px, 38px, 0);
+  }
+  55% {
+    clip: rect(66px, 450px, 132px, 0);
+  }
+  60% {
+    clip: rect(10px, 450px, 59px, 0);
+  }
+  65% {
+    clip: rect(48px, 450px, 128px, 0);
+  }
+  70% {
+    clip: rect(91px, 450px, 146px, 0);
+  }
+  75% {
+    clip: rect(43px, 450px, 122px, 0);
+  }
+  80% {
+    clip: rect(1px, 450px, 155px, 0);
+  }
+  85% {
+    clip: rect(67px, 450px, 24px, 0);
+  }
+  90% {
+    clip: rect(10px, 450px, 110px, 0);
+  }
+  95% {
+    clip: rect(20px, 450px, 103px, 0);
+  }
+  100% {
+    clip: rect(63px, 450px, 142px, 0);
+  }
+}
+
+@keyframes glitch-2 {
+  0% {
+    clip: rect(129px, 450px, 36px, 0);
+  }
+  5% {
+    clip: rect(42px, 450px, 158px, 0);
+  }
+  10% {
+    clip: rect(99px, 450px, 58px, 0);
+  }
+  15% {
+    clip: rect(1px, 450px, 82px, 0);
+  }
+  20% {
+    clip: rect(78px, 450px, 139px, 0);
+  }
+  25% {
+    clip: rect(54px, 450px, 65px, 0);
+  }
+  30% {
+    clip: rect(10px, 450px, 99px, 0);
+  }
+  35% {
+    clip: rect(68px, 450px, 109px, 0);
+  }
+  40% {
+    clip: rect(26px, 450px, 128px, 0);
+  }
+  45% {
+    clip: rect(92px, 450px, 96px, 0);
+  }
+  50% {
+    clip: rect(5px, 450px, 37px, 0);
+  }
+  55% {
+    clip: rect(71px, 450px, 118px, 0);
+  }
+  60% {
+    clip: rect(12px, 450px, 149px, 0);
+  }
+  65% {
+    clip: rect(31px, 450px, 87px, 0);
+  }
+  70% {
+    clip: rect(94px, 450px, 69px, 0);
+  }
+  75% {
+    clip: rect(27px, 450px, 124px, 0);
+  }
+  80% {
+    clip: rect(8px, 450px, 43px, 0);
+  }
+  85% {
+    clip: rect(64px, 450px, 16px, 0);
+  }
+  90% {
+    clip: rect(19px, 450px, 100px, 0);
+  }
+  95% {
+    clip: rect(2px, 450px, 53px, 0);
+  }
+  100% {
+    clip: rect(88px, 450px, 141px, 0);
+  }
+}
+
+/* Binary Rain */
+.theme-cyber .binary-rain {
+  position: fixed;
+  font-family: 'Courier New', monospace;
+  color: var(--accent-primary);
+  font-size: 14px;
+  animation: binary-fall linear infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes binary-fall {
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+/* Hologram Effect */
+.theme-cyber .hologram {
+  position: relative;
+  background: rgba(0, 255, 136, 0.1);
+  border: 1px solid var(--accent-primary);
+}
+
+.theme-cyber .hologram::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(
+    45deg,
+    var(--accent-primary),
+    transparent,
+    var(--accent-primary),
+    transparent,
+    var(--accent-primary)
+  );
+  z-index: -1;
+  filter: blur(10px);
+  opacity: 0.5;
+  animation: hologram-glow 3s linear infinite;
+}
+
+@keyframes hologram-glow {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 200% 0%;
+  }
+}
+
+/* Circuit Lines */
+.theme-cyber .circuit-line {
+  position: fixed;
+  background: var(--accent-primary);
+  pointer-events: none;
+  z-index: -1;
+  animation: circuit-pulse 2s ease-in-out infinite;
+}
+
+@keyframes circuit-pulse {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
